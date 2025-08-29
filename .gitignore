@@ -1,0 +1,11 @@
+# Virtual environment
+env/
+venv/
+shopa_env/ 
+
+# Python cache
+__pycache__/
+
+# Environment variables
+.env
+
