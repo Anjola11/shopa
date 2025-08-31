@@ -9,3 +9,7 @@ __pycache__/
 # Environment variables
 .env
 
+
+# Alembic
+alembic.ini    
+migrations/versions/  

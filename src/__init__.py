@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from src.products.routes  import product_router
+from src.auth.routes import auth_router
 from src.db.main import init_db
 from contextlib import asynccontextmanager
 
@@ -18,4 +19,13 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+@app.get("/")
+async def root():
+    return {"message": "Shopa API is running", "version": version}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
 app.include_router(product_router, prefix=f"/api/v{version}/product")
+app.include_router(auth_router,prefix=f"/api/v{version}/account")
